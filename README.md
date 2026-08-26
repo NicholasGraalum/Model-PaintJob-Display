@@ -7,7 +7,7 @@ Things that I want to implement:
 2. load 3d models
 3. apply paint on 3d models (with possible methods i.e. drybrushing, glazing, etc.)
 ---
-Topics that will be applied in this projet:
+## Topics that will be applied in this project:
 - 3D modeling
 - Webdesign
 - server hosting for webpages
