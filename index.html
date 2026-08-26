@@ -3,11 +3,70 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PaintJob Display</title>
+        <title>Brush Cove</title>
+        <link rel="stylesheet" href="style.css">
+
     </head>
+
     <body>
-        <model interactive>
-            
-        </model>
+        <header>
+            <h1 class="site-title"><a href="#">Brush Cove</a></h1>
+            <div class="profile-options">
+                <button id="profile-some-option" class="action-button">Some option</button>
+                <button id="profile-login" class="action-button">Profile/Login</button>
+
+            </div>
+
+        </header>
+        <main class="content">
+            <!-- The container holding the model to be edited -->
+            <div id="model-grounds"></div>
+
+            <!-- The container holding the options to edit the model -->
+            <div id="model-options">
+                <div clas="model-options-list">
+                    <button id="option-sculpt-button" class="action-button" style="font-size:48px"> 
+                        &#128511;                   <!-- emoji placeholde 🗿 -->
+                    </button>
+                    <button id="option-paint-button" class="action-button" style="font-size:48px"> 
+                        &#127912;                   <!-- emoji placeholde 🎨 -->
+                    </button>
+                    <button id="option-brush-button" class="action-button" style="font-size:48px"> 
+                        &#9999;                   <!-- emoji placeholde ✏ -->
+                    </button>
+                    <button id="option-settings-button" class="action-button" style="font-size:48px"> 
+                        &#128295;                   <!-- emoji placeholde 🔧 -->
+                    </button>
+
+                </div>
+                <div class="model-selected-container">
+                    <div class="model-option-tag">
+                        <div id="option-sculpt">
+                            
+                        </div>
+                    </div>
+
+                    <div class="model-option-tag">
+                        <div id="option-paint">
+
+                        </div>
+                    </div>
+
+                    <div class="model-option-tag">
+                        <div id="option-brush">
+
+                        </div>
+                    </div>
+
+                    <div class="model-option-tag">
+                        <div id="option-settings">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
     </body>
 </html>

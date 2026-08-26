@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.action-button {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(223, 201, 106);
+    position: absolute;
+    
+    .site-title {
+        margin-left: 50px;
+        white-space: nowrap;
+    }
+
+    .site-title a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    }
+
+    .profile-options {
+        display: flex;
+        margin-left: 100px;
+        margin-right: 50px;
+    }
+}
+
+main {
+    display: flex;
+}
