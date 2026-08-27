@@ -98,8 +98,9 @@ header {
     }
 
     #model-grounds {
-        background-color: rgba(170, 157, 157, 0.637);
+        background-color: rgba(170, 157, 157, 0);
         position: absolute;
+        align-items: center;
         display: flex; 
         width: 1500px;
         height: 700px;
