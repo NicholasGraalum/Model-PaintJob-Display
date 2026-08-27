@@ -97,10 +97,10 @@ header {
         top: 120px;
     }
 
-    .model-grounds {
-        background-color: rgb(201, 187, 187);
+    #model-grounds {
+        background-color: rgba(170, 157, 157, 0.637);
         position: absolute;
-        display: flex;
+        display: flex; 
         width: 1500px;
         height: 700px;
         border: 1px solid black;
