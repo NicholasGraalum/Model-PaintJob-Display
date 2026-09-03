@@ -2,12 +2,12 @@
 // Going to attempt to change this code up to read clicks from certain tools to allow editting of the geometry
 // documentation on three.js https://threejs.org/
 
-import * as THREE from './node_modules/three/build/three.module.js'
+import * as THREE from 'three'
 
 // ------------------------------------------------------------IMPORTANT-----------------------------------------------------------------------------|
 // look into the issue with the imports at https://discourse.threejs.org/t/solved-importmaps-broken-on-firefox-which-now-supports-importmaps/48413/5 |
 // --------------------------------------------------------------------------------------------------------------------------------------------------|
-// import { TrackballControls } from './node_modules/three/examples/jsm/controls/TrackballControls.js'
+import { OrbitControls } from 'addons'
 
 // Container that will hold the model
 const renderGrounds = document.getElementById('model-grounds');
@@ -15,36 +15,22 @@ const rect = renderGrounds.getBoundingClientRect();
 
 // Camera for the scene
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 0.6, 1200);
-camera.position.z = 5;
+const camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 0.1, 100);
+camera.position.set(0, 0.75, 1.5);
 
 // Rendering
-const renderer = new THREE.WebGLRenderer({antialias : true});
-
-renderer.setClearColor('#233143');
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(rect.width, rect.height);
-document.body.appendChild(renderer.domElement);
+renderGrounds.appendChild(renderer.domElement);
 
-window.addEventListener('resize', () => {
-    renderer.setSize(rect.width, rect.height);
-    camera.aspect = rect.width / rect.height;
-    camera.updateProjectionMatrix();
-})
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
 
-const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const boxMaterial = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
 const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
 boxMesh.rotation.set(0, 0, 0);
 scene.add(boxMesh);
-
-const rendering = function() {
-    requestAnimationFrame(rendering);
-
-    scene.rotation.z -= 0.005;
-    scene.rotation.x -= 0.01;
-
-    renderer.render(scene, camera);
-}
 
 // Lighting for the Cube
 const lights = [];
@@ -77,9 +63,24 @@ for (let i=0; i<6; i++) {
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper); //X -> red, Y -> green, Z -> blue
 
-// const controls = new TrackballControls(camera, renderer.domElement);                                                                              
-// controls.rotateSpeed = 4;
-// controls.dynamicDampingFactor = 0.15;
-// controls.update()
+window.addEventListener(
+    'resize', 
+    () => {
+    renderer.setSize(rect.width, rect.height);
+    camera.aspect = rect.width / rect.height;
+    camera.updateProjectionMatrix();
+    },
+    false
+)
 
-rendering();
+var animate = function() {
+    requestAnimationFrame(animate);
+    controls.update();
+    rendering();
+}
+
+const rendering = function() {
+    renderer.render(scene, camera);
+}
+
+animate();

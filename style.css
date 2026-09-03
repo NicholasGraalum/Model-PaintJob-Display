@@ -105,5 +105,11 @@ header {
         width: 1500px;
         height: 700px;
         border: 1px solid black;
+        overflow: scroll;
+
+        .model-render {
+            width: 800;
+            height: 700;
+        }
     }
 }
